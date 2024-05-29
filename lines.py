@@ -31,7 +31,8 @@ def count_lines(filename):
         with open(filename) as file:
             for line in file:
                 every_line = line.lstrip()
-                if not every_line.startswith("#"):
+                if every_line and not every_line.startswith("#"): 
+                    # checks if it's a non-empty line that isn't a comment
                     count += 1
     except FileNotFoundError:
         print("File does not exist")
